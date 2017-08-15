@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.yanjinyin</groupId>
+		<artifactId>jinyin-generatorcode</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+<!-- 	<groupId>com.yanjinyin</groupId> -->
+	<artifactId>jinyin-generatorcode-test</artifactId>
+	<!-- <version>0.0.1-SNAPSHOT</version> -->
+	<packaging>war</packaging>
+	<name>jinyin-generatorcode-test Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	
+	<build>
+<!-- 		<finalName>jinyin-generatorcode-test</finalName> -->
+		<plugins>
+			<plugin>
+				<groupId>com.yanjinyin</groupId>
+				<version>0.0.1-SNAPSHOT</version> 
+				<artifactId>jinyin-generatorcode-plugin</artifactId>
+				<configuration>
+					<configXml>src/main/resources/generatorConfig.xml</configXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

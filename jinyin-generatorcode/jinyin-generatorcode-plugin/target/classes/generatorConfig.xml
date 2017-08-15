@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<generatorConfiguration>
+	<context>
+		<generatorProperties>
+			<!-- 作者 -->
+			<property name="author" value="yanjinyin" />
+			<!-- url头部 -->
+			<property name="url_head" value="true" />
+			<!-- 数据库驱动jar类  -->
+			<property name="classPathEntry" value="C:/mysql-connector-java-5.1.26.jar" />
+			<!-- 是否替换原有文件 -->
+			<property name="replaceFile" value="true" />
+		</generatorProperties>
+		<!-- 数据库链接，暂时只支持Mysql，后续会支持 sqlserver，oracle 等主流数据库 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/test" username="root"
+			password="123456">
+		</jdbcConnection>
+		<!-- 配置生成的文件 生成java类： model 为 javaModel 类， 类名 table节点的domainObjectName属性值 
+			mappping 生成Mapping 注解接口、 dao 生成dao、controller 生成控制器、daoImpl 生成接口实现 生成其他扩展名文件： 
+			举例说明，只写xml生成文件名为: model名.xml 写Mapper.xml 生成文件名为: model名Mapper.xml -->
+		<generators>
+			<!-- 生成的数据库实体包路径 -->
+			<generator type="domain" targetPackage="hp.edu.orm.domain" />
+			<!-- 生成的mybatis，表对应的mapper文件 -->
+			<generator type="mappping" targetPackage="hp.edu.orm.mapping" />
+			<!-- 生成的service的包路径 -->
+			<generator type="service" targetPackage="hp.edu.service" />
+			<!-- 根据表生成的controller -->
+			<generator type="controller" targetPackage="hp.edu.controller" />
+			<!-- 生成的view路径 -->
+			<generator type="html" targetPackage="admin.{domainName}" />
+		</generators>
+		<!--- 配置生成的表 tableName 表名、domainObjectName 对应生成的类名、name: 模版名称 -->
+		<tables>
+			<!-- 
+			tableName :表名
+			domainObjectName: 是实体名，如果未写，实体默认采用驼峰命令名
+			category:生成方案分类名称  一对一，一对多，树等
+			moduleName:模块名
+			 -->
+			<table tableName="users" domainObjectName="Users" moduleName="" category="">
+				<!-- column 列名
+				    isInsert 是否插入 true or false
+				    isEdit   是否编辑 true or false
+				    isList   是否列表 true or false
+				    isQuery  是否查询 true or false
+				    queryType 查询类型  查询方式（等于、不等于、大于、小于、范围、左LIKE、右LIKE、左右LIKE）
+				    showType 字段生成方案（文本框、文本域、下拉框、复选框、单选框、字典选择、人员选择、部门选择、区域选择）
+				    dictType  字典类型
+				 -->
+			<column  columnName="username" isInsert="true" isEdit="true" isList="true" isQuery="true" queryType="" showType="" dictType="" sort="true" />
+			</table>
+		</tables>
+	</context>
+</generatorConfiguration>
